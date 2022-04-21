@@ -31,20 +31,6 @@
         <param-name>password</param-name>
         <param-value>147258</param-value>
     </context-param>
-    <servlet>
-        <servlet-name>ConfigDemoServlet</servlet-name>
-        <servlet-class>com.JiangHuang.week4.ConfigDemoServlet</servlet-class>
-        <init-param>
-            <param-name>name</param-name>
-            <param-value>JiangHuang</param-value>
-        </init-param>
-        <init-param>
-            <param-name>studentId</param-name>
-            <param-value>2020211001001406</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ConfigDemoServlet</servlet-name>
-        <url-pattern>/config</url-pattern>
-    </servlet-mapping>
+
+
 </web-app>

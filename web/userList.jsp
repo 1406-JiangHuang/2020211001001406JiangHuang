@@ -14,25 +14,28 @@
     <tr>
         <td>Id</td>Username<td>password</td><td>Email</td>Gender<td>Birthday</td>
     </tr>
-    <tr>
-        <td>no data!!!</td>
-    </tr>
+    <
     <%
       ResultSet rs = (ResultSet) request.getAttribute("name");
       if (rs ==null){
 
-      }
-    %>
-    <%else{
-        PrintWriter writer = response.getWriter();
-        writer.println("<br>username:"+rs.getString("username"));
-        writer.println("<br>password:"+rs.getString("password"));
-        writer.println("<br>email:"+rs.getString("email"));
-        writer.println("<br>gender:"+rs.getString("gender"));
-        writer.println("<br>birthDate"+rs.getString("birthDate"));
-        writer.close();
-        }
 
+    %>
+    tr>
+    <td>no data!!!</td>
+    </tr>
+    <%}else{
+        while (rs.next()) {
+            out.println("<tr>");
+            out.println("<td>" + rs.getInt("id") + "</td>");
+            out.println("<td>" + rs.getString("username") + "</td>");
+            out.println("<td>" + rs.getString("password") + "</td>");
+            out.println("<td>" + rs.getString("email") + "</td>");
+            out.println("<td>" + rs.getString("gender") + "</td>");
+            out.println("<td>" + rs.getString("birthdate") + "</td>");
+            out.println("</tr>");
+        }
+    }
     %>
 </table>
 <%@include file="footer.jsp"%>
