@@ -14,8 +14,11 @@ import java.sql.*;
 @WebServlet(name = "LoginServlet",value = "/login")
 public class LoginServlet extends HttpServlet {
     Connection con =  null;
+
     @Override
     public void init() throws ServletException {
+        super.init();
+
         ServletContext context = getServletContext();
         String driver = context.getInitParameter("driver");
         String url = context.getInitParameter("url");

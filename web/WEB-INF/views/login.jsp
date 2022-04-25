@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp"%>
 <h1>Login</h1>
 <%
@@ -5,10 +6,27 @@
         out.print("<h3>" + request.getAttribute("message") + "</h3>");
     }
 %>
-<form action="login" method="post">
-    username:<input type="text" name="username"/><br>
-    password:<input type="password" name="password"/><br>
-    <input type="submit" value="Login"/>
+<%
+    Cookie[] allcookies = request.getCookies();
+    String username = "",password = "",rememberMeVal="";
+    if(allcookies != null){
+        for(Cookie c:allcookies){
+            if(c.getName().equals("cUsername")){
+                username = c.getValue();
+            }
+            if(c.getName().equals("cPassword")){
+                password = c.getValue();
+            }if(c.getName().equals("cRememberMe")){
+                rememberMeVal = c.getValue();
+            }
+        }
+    }
+%>
+<form method="post" action="login">
+    UserName:<input type="text" name="username" value="<%=username%>"><br>
+    Password:<input type="password" name="password" value="<%=password%>"><br>
+    <input type="checkbox" name="rememberMe" value="1" <%=rememberMeVal.equals("1") ?"checked":""%>checked/>RememberMe<br>
+    <input type="submit" value="login">
 </form>
 
 <%@include file="footer.jsp"%>
