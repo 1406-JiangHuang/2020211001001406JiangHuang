@@ -1,6 +1,6 @@
 package com.JiangHuang.dao;
 
-import com.dabing.model.Product;
+import com.JiangHuang.model.Product;
 
 import java.io.InputStream;
 import java.sql.Connection;
